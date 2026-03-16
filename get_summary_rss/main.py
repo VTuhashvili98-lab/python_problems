@@ -10,7 +10,7 @@ import os
 import sys
 
 
-UNITS = ["KB", "MB", "GB", "TB"]
+UNITS = ["KB", "MB", "GB", "TB", "PT", "EB"]
 
 
 def normalize_size(size: float) -> str:
@@ -21,7 +21,6 @@ def normalize_size(size: float) -> str:
         if size < 1024 or unit == UNITS[-1]:
             return f"{size:.1f}{unit}"
         size /= 1024
-
 
 
 def get_summary_rss(path_to_file: str) -> str:
@@ -43,4 +42,4 @@ def get_summary_rss(path_to_file: str) -> str:
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "output.txt"
-    print(get_summary_rss(path_to_file=path))
+    print(get_summary_rss(path))
