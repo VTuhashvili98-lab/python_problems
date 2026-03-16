@@ -18,11 +18,10 @@ def normalize_size(size: float) -> str:
     """ Transforms 'size' to human-readable format."""
 
     for unit in UNITS:
-        if size < 1024:
+        if size < 1024 or unit == UNITS[-1]:
             return f"{size:.1f}{unit}"
         size /= 1024
 
-    return f"{size:.1f}{UNITS[-1]}"
 
 
 def get_summary_rss(path_to_file: str) -> str:
